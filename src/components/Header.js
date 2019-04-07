@@ -1,12 +1,12 @@
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem, Jumbotron ,Modal,ModalBody,ModalHeader,Label,Input,Button, Form,FormGroup} from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem ,Modal,ModalBody,ModalHeader,Label,Input,Button, Form,FormGroup} from 'reactstrap';
+import { NavLink,Link } from 'react-router-dom';
 import React from 'react';
 class Header extends React.Component {
     constructor(props) {
         super(props);
     
         this.toggleNav = this.toggleNav.bind(this);
-        this.toggleModal = this.toggleModal.bind(this);
+        // this.toggleModal = this.toggleModal.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
       
         this.state = {
@@ -20,11 +20,11 @@ class Header extends React.Component {
           isNavOpen: !this.state.isNavOpen
         });
       }
-      toggleModal() {
-        this.setState({
-          isModalOpen: !this.state.isModalOpen
-        });
-      }
+    //   toggleModal() {
+    //     this.setState({
+    //       isModalOpen: !this.state.isModalOpen
+    //     });
+    //   }
       
       
           handleLogin(event) {
@@ -58,13 +58,13 @@ class Header extends React.Component {
                             </Nav>
                             <Nav className="ml-auto" navbar> 
                                 <NavItem>
-                                    <Button className="btn-login" onClick={this.toggleModal} outline><span className="fa fa-sign-in fa-lg"></span> Login</Button>
+                                <Link to="/login"> <Button className="btn-login" onClick={this.toggleModal} outline><span className="fa fa-sign-in fa-lg"></span> Login</Button></Link>
                                 </NavItem>
                             </Nav>
                         </Collapse>
                     </div>
                 </Navbar>
-                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                {/* <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader>Login</ModalHeader>
                     <ModalBody>
                     <Form onSubmit={this.handleLogin}>
@@ -80,6 +80,11 @@ class Header extends React.Component {
                             </FormGroup>
                             <FormGroup check>
                                 <Label check>
+                                    <p>If you don't have an account <Link onClick={this.toggleNav}  to='/signup'>SIGNUP</Link>  </p>
+                                </Label>
+                            </FormGroup>
+                            <FormGroup check>
+                                <Label check>
                                     <Input type="checkbox" name="remember"
                                     innerRef={(input) => this.remember = input}  />
                                     Remember me
@@ -88,7 +93,7 @@ class Header extends React.Component {
                             <Button type="submit" value="submit" color="primary">Login</Button>
                         </Form>
                     </ModalBody>
-                </Modal>
+                </Modal> */}
             </div>
         );
     }
