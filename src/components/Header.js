@@ -1,70 +1,127 @@
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem ,Modal,ModalBody,ModalHeader,Label,Input,Button, Form,FormGroup} from 'reactstrap';
-import { NavLink,Link } from 'react-router-dom';
-import React from 'react';
+import {
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavbarToggler,
+  Collapse,
+  NavItem,
+  Modal,
+  ModalBody,
+  ModalHeader,
+  Label,
+  Input,
+  Button,
+  Form,
+  FormGroup,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from "reactstrap";
+import { NavLink, Link } from "react-router-dom";
+import React from "react";
 class Header extends React.Component {
-    constructor(props) {
-        super(props);
-    
-        this.toggleNav = this.toggleNav.bind(this);
-        // this.toggleModal = this.toggleModal.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);
-      
-        this.state = {
-          isNavOpen: false,
-          isModalOpen:false
-        };
-      }
+  constructor(props) {
+    super(props);
 
-      toggleNav() {
-        this.setState({
-          isNavOpen: !this.state.isNavOpen
-        });
-      }
-    //   toggleModal() {
-    //     this.setState({
-    //       isModalOpen: !this.state.isModalOpen
-    //     });
-    //   }
-      
-      
-          handleLogin(event) {
-              this.toggleModal();
-              alert("Username: " + this.username.value + " Password: " + this.password.value
-                  + " Remember: " + this.remember.checked);
-              event.preventDefault();
-      
-          }
-    render() {
-        return(
-            <div>
-                <Navbar dark expand="md">
-                    <div className="container">
-                        <NavbarToggler onClick={this.toggleNav} />
-                        <NavbarBrand className="mr-auto" href="/"><img src='assets/images/logo.png' height="30" width="41" alt='Ahla Automobile' /></NavbarBrand>
-                        <Collapse isOpen={this.state.isNavOpen} navbar>
-                            <Nav navbar className="ml-5">
-                            <NavItem >
-                                <NavLink className="nav-link"  to='/home'><span className="fa fa-home fa-lg"></span> Home</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link" to='/aboutus'><span className="fa fa-info fa-lg"></span> About Us</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link"  to='/menu'><span className="fa fa-list fa-lg"></span> Menu</NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span> Contact Us</NavLink>
-                            </NavItem>
-                            </Nav>
-                            <Nav className="ml-auto" navbar> 
-                                <NavItem>
-                                <Link to="/login"> <Button className="btn-login" onClick={this.toggleModal} outline><span className="fa fa-sign-in fa-lg"></span> Login</Button></Link>
-                                </NavItem>
-                            </Nav>
-                        </Collapse>
-                    </div>
-                </Navbar>
-                {/* <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+    this.toggleNav = this.toggleNav.bind(this);
+    // this.toggleModal = this.toggleModal.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+
+    this.state = {
+      isNavOpen: false,
+      isModalOpen: false
+    };
+  }
+
+  toggleNav() {
+    this.setState({
+      isNavOpen: !this.state.isNavOpen
+    });
+  }
+  //   toggleModal() {
+  //     this.setState({
+  //       isModalOpen: !this.state.isModalOpen
+  //     });
+  //   }
+
+  handleLogin(event) {
+    this.toggleModal();
+    alert(
+      "Username: " +
+        this.username.value +
+        " Password: " +
+        this.password.value +
+        " Remember: " +
+        this.remember.checked
+    );
+    event.preventDefault();
+  }
+  render() {
+    return (
+      <div>
+        <Navbar dark expand="md">
+          <div className="container">
+            <NavbarToggler onClick={this.toggleNav} />
+            <NavbarBrand className="mr-auto" href="/">
+              <img
+                src="assets/images/logo.png"
+                height="30"
+                width="41"
+                alt="CarMaster"
+              />
+            </NavbarBrand>
+            <Collapse isOpen={this.state.isNavOpen} navbar>
+              <Nav navbar className="ml-5">
+                <NavItem>
+                  <Link className="nav-link" to="/home">
+                    <span className="fa fa-home fa-lg" /> Home
+                  </Link>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/aboutus">
+                    <span className="fa fa-info fa-lg" /> About Us
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <UncontrolledDropdown>
+                    <DropdownToggle nav caret>
+                      <span className="fa fa-list fa-lg" /> Menu
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                      <NavLink className="nav-link" to="/category">
+                        <DropdownItem>our brands</DropdownItem>
+                      </NavLink>
+                      <DropdownItem>Option 2</DropdownItem>
+                      <DropdownItem divider />
+                      <DropdownItem>Reset</DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/contactus">
+                    <span className="fa fa-address-card fa-lg" /> Contact Us
+                  </NavLink>
+                </NavItem>
+              </Nav>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <Link to="/login">
+                    {" "}
+                    <Button
+                      className="btn-login"
+                      onClick={this.toggleModal}
+                      outline
+                    >
+                      <span className="fa fa-sign-in fa-lg" /> Login
+                    </Button>
+                  </Link>
+                </NavItem>
+              </Nav>
+            </Collapse>
+          </div>
+        </Navbar>
+        {/* <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader>Login</ModalHeader>
                     <ModalBody>
                     <Form onSubmit={this.handleLogin}>
@@ -94,8 +151,8 @@ class Header extends React.Component {
                         </Form>
                     </ModalBody>
                 </Modal> */}
-            </div>
-        );
-    }
+      </div>
+    );
+  }
 }
-export default  Header;
+export default Header;
