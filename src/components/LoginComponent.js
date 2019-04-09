@@ -39,7 +39,7 @@ class Login extends React.Component{
             <div className="col-6 offset-3">
                <h3>Create your account</h3>
             </div>
-             <div className="col-12 col-md-8 offset-3">
+             <div className="col-12 col-md-8 offset-md-3">
                  <Form onSubmit={this.handleSubmit}>
                      <FormGroup row>
                          <Label htmlFor="email" md={2}>Email</Label>
