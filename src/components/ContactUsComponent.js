@@ -2,22 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import {
-  Breadcrumb,
-  BreadcrumbItem,
+  Col,
+  Row,
   Button,
   Form,
   FormGroup,
   Label,
   Input,
-  Col
+  FormText,
+  Badge
 } from "reactstrap";
-class Login extends React.Component {
+
+class Contact extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       email: "",
-      password: ""
+      message: ""
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -44,7 +46,7 @@ class Login extends React.Component {
     return (
       <div className="row row-content">
         <div className="col-6 offset-3">
-          <h3>Create your account</h3>
+          <h3>contact us</h3>
         </div>
         <div className="col-12 col-md-8 offset-3">
           <Form onSubmit={this.handleSubmit}>
@@ -64,38 +66,32 @@ class Login extends React.Component {
               </Col>
             </FormGroup>
             <FormGroup row>
-              <Label htmlFor="password" md={2}>
-                Password
+              <Label for="exampleText" sm={2}>
+                Message
               </Label>
-              <Col md={7}>
+              <Col sm={10}>
                 <Input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Password"
-                  value={this.state.password}
+                  type="textarea"
+                  id="textarea"
+                  name="textarea"
+                  placeholder="write you message"
+                  value={this.state.message}
                   onChange={this.handleInputChange}
                 />
               </Col>
             </FormGroup>
 
             <FormGroup row>
-              <Col md={{ size: 7, offset: 2 }}>
+              <Col md={{ size: 4, offset: 2 }}>
                 <Button className="col-md-12" type="submit" color="success">
-                  Submit
+                  send message
                 </Button>
               </Col>
             </FormGroup>
             <FormGroup row>
-              <Col className="mt-2" md={{ size: 3, offset: 3 }}>
-                <h6>If you haven't an account</h6>
-              </Col>
-              <Col md={{ size: 2, offset: 0 }}>
+              <Col className="mt-2">
                 <Link to="/signup">
-                  {" "}
-                  <Button color="warning" className="col-md-12">
-                    Sign Up
-                  </Button>
+                  <h3>you haven't an account??</h3>
                 </Link>
               </Col>
             </FormGroup>
@@ -105,4 +101,4 @@ class Login extends React.Component {
     );
   }
 }
-export default Login;
+export default Contact;
