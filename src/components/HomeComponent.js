@@ -8,8 +8,10 @@ class Home extends React.Component {
       <div>
         <CarouselHome />
         <Category />
-        <img width="1303" src="assets/images/cover2.jpg" />
-        <img width="1303" src="assets/images/cover.jpg" />
+        <div className="row">
+        <img className="col-12" height="400" src="assets/images/cover2.jpg" />
+        <img className="col-12" height="400"  src="assets/images/cover.jpg" />
+        </div>
         <center className="mt-5">
           <h1>CarMaster </h1>
           <p>

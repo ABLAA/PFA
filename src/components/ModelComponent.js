@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Bmw from "./ModelComponent";
+import {CARS} from '../shared/cars';
 import {
   Badge,
   Card,
@@ -31,118 +31,12 @@ class Model extends React.Component {
     }));
   }
   render() {
-    const carModels = [
-      {
-        id: 1,
-        name: "AudiA8",
-        arrivage: "new",
-        src: "assets/images/AudiA8.jpg",
-        price: "200000 €",
-        detail:
-          "4.19 meters long. 1205 kg weight. 2.60 meter wheelbase. A superior Cd value of 0.30"
-      },
-
-      {
-        id: 2,
-        name: "AudiA3",
-        src: "assets/images/AudiA3.jpg",
-        price: "200000 €",
-        arrivage: "",
-        detail:
-          "4.19 meters long. 1205 kg weight. 2.60 meter wheelbase. A superior Cd value of 0.30"
-      },
-      {
-        id: 3,
-        name: "AudiA5",
-        arrivage: "",
-        src: "assets/images/AudiA5.jpg",
-        price: "200000 €",
-        detail:
-          "4.19 meters long. 1205 kg weight. 2.60 meter wheelbase. A superior Cd value of 0.30"
-      },
-      {
-        id: 4,
-        name: "AudiA7",
-        arrivage: "",
-        price: "200000 €",
-        src: "assets/images/AudiA7.jpg",
-        detail:
-          "4.19 meters long. 1205 kg weight. 2.60 meter wheelbase. A superior Cd value of 0.30"
-      },
-      {
-        id: 5,
-        name: "AudiA6",
-        src: "assets/images/AudiA6.jpg",
-        price: "200000 €",
-        arrivage: "",
-        detail:
-          "4.19 meters long. 1205 kg weight. 2.60 meter wheelbase. A superior Cd value of 0.30"
-      },
-      {
-        id: 6,
-        name: "AudiQ8",
-        arrivage: "new",
-        src: "assets/images/AudiQ8.jpg",
-        price: "200000 €",
-        detail:
-          "4.19 meters long. 1205 kg weight. 2.60 meter wheelbase. A superior Cd value of 0.30"
-      },
-      {
-        id: 7,
-        name: "AudiQ2",
-        src: "assets/images/AudiQ2.jpg",
-        price: "200000 €",
-        detail:
-          "4.19 meters long. 1205 kg weight. 2.60 meter wheelbase. A superior Cd value of 0.30"
-      },
-      {
-        id: 8,
-        name: "AudiQ3",
-        src: "assets/images/AudiQ3.jpg",
-        price: "200000 €",
-        detail:
-          "4.19 meters long. 1205 kg weight. 2.60 meter wheelbase. A superior Cd value of 0.30"
-      },
-      {
-        id: 9,
-        name: "AudiQ5",
-        src: "assets/images/AudiQ5.jpg",
-        price: "200000 €",
-        detail:
-          "4.19 meters long. 1205 kg weight. 2.60 meter wheelbase. A superior Cd value of 0.30"
-      },
-      {
-        id: 10,
-        name: "AudiQ7",
-        src: "assets/images/AudiQ7.jpg",
-        price: "200000 €",
-        detail:
-          "4.19 meters long. 1205 kg weight. 2.60 meter wheelbase. A superior Cd value of 0.30"
-      },
-      {
-        id: 11,
-        name: "AudiTT",
-        arrivage: "new",
-        src: "assets/images/AudiTT.jpg",
-        price: "200000 €",
-        detail:
-          "4.19 meters long. 1205 kg weight. 2.60 meter wheelbase. A superior Cd value of 0.30"
-      },
-      {
-        id: 12,
-        name: "AudiEtron",
-        arrivage: "",
-        src: "assets/images/AudiEtron.jpg",
-        price: "200000 €",
-        detail:
-          "4.19 meters long. 1205 kg weight. 2.60 meter wheelbase. A superior Cd value of 0.30"
-      }
-    ];
+    const carModels =this.props.cars;
     const allmodels = carModels.map(model => {
       return (
-        <div style={{ backgroundColor: "#999" }} className=" col-4 py-3 md-8">
-          <Card key={model.id} style={{ backgroundColor: "#555" }}>
-            <CardImg top width="100%" src={model.src} alt="Card image cap" />
+        <div style={{ backgroundColor: "rgba(0, 0, 0,0.2)" }} className=" col-4 py-3 md-8">
+          <Card key={model.id} style={{ backgroundColor: "rgba(67, 57, 90,0.5)" }}>
+            <CardImg top width="100%" src={"../"+model.src} alt="Card image cap" />
             <CardBody>
               <h2>
                 {model.name} <Badge color="warning">{model.arrivage}</Badge>
@@ -196,9 +90,9 @@ class Model extends React.Component {
       );
     });
     return (
-      <div style={{ backgroundColor: "#222" }}>
+      <div >
         <center>
-          <img height="200" width="400" src="assets/images/audi.png" />
+          <img className="m-2" height="250" width="300" src={"../assets/images/"+this.props.cathegory+".png"} />
         </center>
         <div className="col-12 col-sm-10 offset-1">
           <div className="row">{allmodels}</div>

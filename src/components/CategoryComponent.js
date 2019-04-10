@@ -7,7 +7,8 @@ class Category extends React.Component {
     const cathegories = [
       {
         id: 1,
-        src: "assets/images/bmw.png"
+        src: "assets/images/bmw.png",
+        cath:"bmw"
       },
       {
         id: 2,
@@ -104,8 +105,8 @@ class Category extends React.Component {
     ];
     const allCath = cathegories.map(cathegory => {
       return (
-        <div className="col-5 col-sm-2 mt-4 ">
-          <Link to={"/model"}>
+        <div className="col-5 col-sm-2 mt-4 " cath={cathegory.cath}>
+          <Link to={`/model/${cathegory.cath}`}>
             <img
               onClick=""
               key={cathegory.id}
