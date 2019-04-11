@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {CARS} from '../shared/cars';
+import {CARS} from '../../shared/cars';
 import {
   Badge,
   Card,

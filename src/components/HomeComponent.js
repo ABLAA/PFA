@@ -1,5 +1,5 @@
 import React from "react";
-import CarouselHome from "./CarouselComponent";
+import CarouselHome from "./client/design/CarouselComponent";
 import Category from "./CategoryComponent";
 
 class Home extends React.Component {

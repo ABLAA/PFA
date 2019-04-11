@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Bmw from "./ModelComponent";
+import Bmw from "./client/ModelComponent";
 
 class Category extends React.Component {
   render() {

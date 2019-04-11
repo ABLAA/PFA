@@ -1,6 +1,6 @@
 import React from "react";
-import CarouselHome from "./CarouselComponent";
-import Category from "./CategoryComponent";
+import CarouselHome from "./design/CarouselComponent";
+import Category from "../CategoryComponent";
 
 class About extends React.Component {
   render() {

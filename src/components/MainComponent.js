@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "./Header";
-import Footer from "./Footer";
+import Footer from "./client/Footer";
 import { Switch, Redirect, Route, withRouter } from "react-router-dom";
 import Home from "./HomeComponent";
-import Sign from "./SignComponent";
+import Sign from "./client/SignComponent";
 import Login from "./LoginComponent";
-import Model from "./ModelComponent";
-import About from "./AboutUsComponent";
-import Contact from "./ContactUsComponent";
+import Model from "./client/ModelComponent";
+import About from "./client/AboutUsComponent";
+import Contact from "./client/ContactUsComponent";
 import Category from "./CategoryComponent";
 import {CARS} from '../shared/cars';
 
