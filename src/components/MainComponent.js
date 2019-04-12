@@ -10,13 +10,32 @@ import About from "./client/AboutUsComponent";
 import Contact from "./client/ContactUsComponent";
 import Category from "./CategoryComponent";
 import {CARS} from '../shared/cars';
+import {connect} from 'react-redux';
+import { addCars,userSignup } from "../redux/ActionCreators";
 
+const mapStateToProps=(state)=>{
+  return(
+    {
+    cars:state.cars,
+    
+    }
+  )
+}
+const  mapDispatchToProps=(dispatch)=>({
+  addCars: () => { dispatch(addCars())},
+  userSignup:(user)=>{dispatch(userSignup(user))}
+  
+
+
+});
 class Main extends React.Component {
   constructor(props){
     super(props);
     this.state={cars:CARS};
   }
-  
+  componentDidMount() {
+    this.props.addCars();
+  }
   render() {
     const ModelWithCath = ({match}) => {
       return(
@@ -32,9 +51,11 @@ class Main extends React.Component {
         <Header />
         <Switch>
           <Route path="/home" component={() => <Home />} />
-          <Route path="/signup" component={() => <Sign />} />
+          <Route path="/signup" component={() => <Sign userSignup={this.props.userSignup} />} />
           <Route path="/login" component={() => <Login />} />
           <Route path="/model/:cath" component={ModelWithCath} />
+          <Route path="/model" component={()=><Model cars={this.props.cars} />} />
+
           <Route path="/aboutus" component={() => <About />} />
           <Route path="/contactus" component={() => <Contact />} />
           <Route path="/category" component={() => <Category />} />
@@ -46,4 +67,4 @@ class Main extends React.Component {
     );
   }
 }
-export default withRouter(Main);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Main));

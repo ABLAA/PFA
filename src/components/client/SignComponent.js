@@ -12,7 +12,8 @@ class Sign extends React.Component{
             email: '',
             password:'',
             password2:'',
-            contactType: 'Tel.'
+            contactType: 'Tel.',
+            gendre:''
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -31,9 +32,8 @@ class Sign extends React.Component{
     }
 
     handleSubmit(event) {
-        console.log('Current State is: ' + JSON.stringify(this.state));
-        alert('Current State is: ' + JSON.stringify(this.state));
         event.preventDefault();
+        this.props.userSignup(this.state);
     }
 
     render(){
@@ -98,27 +98,38 @@ class Sign extends React.Component{
                                  onChange={this.handleInputChange} />
                          </Col>
                      </FormGroup>
-                     {/* <FormGroup row>
+                      <FormGroup row>
                          <Col md={{size: 4, offset: 2}}>
                              <FormGroup check>
                                  <Label check>
-                                     <Input type="checkbox"
-                                         name="agree"
-                                         checked={this.state.agree}
+                                     <Input type="radio"
+                                         name="gendre"
+                                         value="Male"
                                          onChange={this.handleInputChange} /> {' '}
-                                     <strong>May we contact you?</strong>
+                                     <strong>Male</strong>
                                  </Label>
                              </FormGroup>
                          </Col>
-                         <Col md={{size: 3, offset: 0}}>
+                       {/*  <Col md={{size: 3, offset: 0}}>
                              <Input type="select" name="contactType"
                                      value={this.state.contactType}
                                      onChange={this.handleInputChange}>
                                  <option>Tel.</option>
                                  <option>Email</option>
                              </Input>
+                         </Col>*/}
+                         <Col md={{size: 4}}>
+                             <FormGroup check>
+                                 <Label check>
+                                     <Input type="radio"
+                                         name="gendre"
+                                         value="Female"
+                                         onChange={this.handleInputChange} /> {' '}
+                                     <strong>Female</strong>
+                                 </Label>
+                             </FormGroup>
                          </Col>
-                     </FormGroup> */}
+                     </FormGroup> 
                      <FormGroup row>
                          <Col md={{size: 7, offset: 2}}>
                              <Button type="submit" color="primary">
