@@ -12,7 +12,7 @@ import Category from "./CategoryComponent";
 import {CARS} from '../shared/cars';
 import {connect} from 'react-redux';
 import { addCars,userSignup } from "../redux/ActionCreators";
-
+import Admin from './AdminComponent';
 const mapStateToProps=(state)=>{
   return(
     {

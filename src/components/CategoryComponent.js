@@ -108,7 +108,7 @@ class Category extends React.Component {
         <div className="col-5 col-sm-2 mt-4 " cath={cathegory.cath}>
           <Link to={`/model/${cathegory.cath}`}>
             <img
-              onClick=""
+              
               key={cathegory.id}
               src={cathegory.src}
               alt="ghjkl"

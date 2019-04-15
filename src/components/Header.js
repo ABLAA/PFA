@@ -60,7 +60,8 @@ class Header extends React.Component {
   render() {
     return (
       <div>
-        <Navbar dark expand="md">
+        
+         <Navbar dark expand="md">
           <div className="container">
             <NavbarToggler onClick={this.toggleNav} />
             <NavbarBrand className="mr-auto" href="/">
@@ -81,6 +82,9 @@ class Header extends React.Component {
                 <NavItem>
                   <NavLink className="nav-link" to="/aboutus">
                     <span className="fa fa-info fa-lg" /> About Us
+                  </NavLink>
+                  <NavLink className="nav-link" to="/admin">
+                    <span className="fa fa-info fa-lg" /> Admin 
                   </NavLink>
                 </NavItem>
                 <NavItem>
@@ -121,7 +125,7 @@ class Header extends React.Component {
             </Collapse>
           </div>
         </Navbar>
-        {/* <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+         {/* <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader>Login</ModalHeader>
                     <ModalBody>
                     <Form onSubmit={this.handleLogin}>
@@ -150,8 +154,8 @@ class Header extends React.Component {
                             <Button type="submit" value="submit" color="primary">Login</Button>
                         </Form>
                     </ModalBody>
-                </Modal> */}
-      </div>
+                </Modal>  */}
+              </div>
     );
   }
 }

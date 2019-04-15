@@ -11,42 +11,25 @@ var con = mysql.createConnection({
         user: "root",
         password: "",
         database: "PFA"
-      });
-      console.log("cnx");
+      },
+      console.log("cnx"));
+    
       
-      // con.connect(function(err) {
-      //   if (err) throw err;
-      //   con.query("SELECT * FROM Clients", function (err, result, fields) {
-      //     if (err) throw err;
-          
-      //     console.log(JSON.stringify(result));
-      //   });
-      // });
-
-// app.post('/test',(req,res)=>{
-//       con.query("SELECT * FROM Clients", function (err, result, fields) {
-//   if (err) throw err;
-          
-//   console.log(JSON.stringify(result));
-
-//         res.send(result);
-//       });
-// })
 app.post('/api/users',(req,res)=>{
   con.connect(function(err) {
-    if (err) throw err;
-    const query="INSERT INTO `Clients`(`cin`, `email`) VALUES (?,?)";
-    con.query(query,["101",req.body.email], function (err, result, fields) {
-      if (err) throw err;
-      
-      console.log(JSON.stringify(result));
+                              if (err) throw err;
+                              const query="INSERT INTO `Clients`(`cin`, `email`) VALUES (?,?)";
+                              con.query(query,["9",req.body.email], function (err, result, fields) {
+                             if (err) throw err;
+                                res.sendStatus(200);
+                                console.log(JSON.stringify(result));
 
-    });
+                            });
 
 
 
   });
-  res.send("5rena fih")
+  
 })
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem,
     Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 class Sign extends React.Component{
@@ -33,7 +34,7 @@ class Sign extends React.Component{
 
     handleSubmit(event) {
         event.preventDefault();
-        this.props.userSignup(this.state);
+        this.props.userSignup(this.state);     
     }
 
     render(){
@@ -144,4 +145,4 @@ class Sign extends React.Component{
         );
     }    
 }
-export default Sign;
+export default withRouter( Sign);
