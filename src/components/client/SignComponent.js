@@ -2,6 +2,9 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem,
     Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
+    import createBrowserHistory from 'history/createBrowserHistory';
+
+const history = createBrowserHistory({forceRefresh:true});
 class Sign extends React.Component{
     constructor(props) {
         super(props);
@@ -14,7 +17,8 @@ class Sign extends React.Component{
             password:'',
             password2:'',
             contactType: 'Tel.',
-            gendre:''
+            gendre:'',
+            adresse:''
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -34,7 +38,7 @@ class Sign extends React.Component{
 
     handleSubmit(event) {
         event.preventDefault();
-        this.props.userSignup(this.state);     
+        this.props.userSignup(this.state)
     }
 
     render(){
@@ -63,15 +67,7 @@ class Sign extends React.Component{
                                  onChange={this.handleInputChange} />
                          </Col>                        
                      </FormGroup>
-                     <FormGroup row>
-                     <Label htmlFor="telnum" md={2}>Contact Tel.</Label>
-                         <Col md={7}>
-                             <Input type="tel" id="telnum" name="telnum"
-                                 placeholder="Tel. number"
-                                 value={this.state.telnum}
-                                 onChange={this.handleInputChange} />
-                         </Col>
-                     </FormGroup>
+                     
                      <FormGroup row>
                          <Label htmlFor="email" md={2}>Email</Label>
                          <Col md={7}>
@@ -99,6 +95,25 @@ class Sign extends React.Component{
                                  onChange={this.handleInputChange} />
                          </Col>
                      </FormGroup>
+                     <FormGroup row>
+                         <Label htmlFor="adresse" md={2}>Adresse</Label>
+                         <Col md={7}>
+                             <Input type="text" id="adresse" name="adresse"
+                                 placeholder="Adresse"
+                                 value={this.state.addresse}
+                                 onChange={this.handleInputChange} />
+                         </Col>
+                     </FormGroup>
+                     <FormGroup row>
+                     <Label htmlFor="telnum" md={2}>Contact Tel.</Label>
+                         <Col md={7}>
+                             <Input type="tel" id="telnum" name="telnum"
+                                 placeholder="Tel. number"
+                                 value={this.state.telnum}
+                                 onChange={this.handleInputChange} />
+                         </Col>
+                     </FormGroup>
+                     
                       <FormGroup row>
                          <Col md={{size: 4, offset: 2}}>
                              <FormGroup check>

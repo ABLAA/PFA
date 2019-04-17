@@ -28,9 +28,8 @@ class Login extends React.Component{
     }
 
     handleSubmit(event) {
-        console.log('Current State is: ' + JSON.stringify(this.state));
-        alert('Current State is: ' + JSON.stringify(this.state));
         event.preventDefault();
+        this.props.login(this.state);
     }
 
     render(){
@@ -51,9 +50,9 @@ class Login extends React.Component{
                          </Col>
                      </FormGroup>
                      <FormGroup row>
-                         <Label htmlFor="password" md={2}>Last Name</Label>
+                         <Label htmlFor="password" md={2}>Password</Label>
                          <Col md={7}>
-                             <Input type="password" id="passwoed" name="passwoed"
+                             <Input type="password" id="password" name="password"
                                  placeholder="Password"
                                  value={this.state.passwoed}
                                  onChange={this.handleInputChange} />

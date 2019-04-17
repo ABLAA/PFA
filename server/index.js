@@ -1,36 +1,55 @@
+const users=require('./routes/users');
+const auth=require('./routes/auth');
+
 const express=require('express');
 const app=express();
-var mysql = require('mysql');
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var con = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "PFA"
-      },
-      console.log("cnx"));
-    
+
+
+
+
+app.use('/api/users',users);
+app.use('/api/auth',auth);
+
       
-app.post('/api/users',(req,res)=>{
-  con.connect(function(err) {
-                              if (err) throw err;
-                              const query="INSERT INTO `Clients`(`cin`, `email`) VALUES (?,?)";
-                              con.query(query,["9",req.body.email], function (err, result, fields) {
-                             if (err) throw err;
-                                res.sendStatus(200);
-                                console.log(JSON.stringify(result));
+// const insertUser=(req,res,email,hash,firstname,lastname,telnum,adresse,gendre)=>{
+//         const query="INSERT INTO `Clients`( `email`, `pwd`, `nomClient`, `prenomClient`, `telephone`, `adresse`,  `sexe`) VALUES (?,?,?,?,?,?,?)";
+//         con.query(query,[email,hash,firstname,lastname,telnum,adresse,gendre], function (err, result, fields) {
+//        if (err) throw err;
+//           res.sendStatus(200);
+//           console.log(JSON.stringify(result));
 
-                            });
+//       });
+//       };
+// const checkUser=(email)=>{
+// const query="select * from Clients where email=?";
+// con.query(query,[email], function (err, result, fields) {
+//   if (err) throw err;
+//   if(!result.length)
+//   bcrypt.hash(password, 10, function(err, hash) {
+//     insertUser(req,res,email,hash,firstname,lastname,telnum,adresse,gendre);
+//     })
+
+//  })
+ 
+
+// }
 
 
 
-  });
+
+                   
+                              
+
+                           
+                        
+ 
   
-})
+
 
 
 
