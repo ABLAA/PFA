@@ -58,13 +58,14 @@ class Header extends React.Component {
     event.preventDefault();
   }
   render() {
+    if (this.props.grade!=="2")
     return (
       <div>
         
          <Navbar dark expand="md">
           <div className="container">
             <NavbarToggler onClick={this.toggleNav} />
-            <NavbarBrand className="mr-auto" href="/">
+            <Link className="nav-link" to="/home"> <NavbarBrand className="mr-auto" >
               <img
                 src="assets/images/logo.png"
                 height="30"
@@ -72,6 +73,7 @@ class Header extends React.Component {
                 alt="CarMaster"
               />
             </NavbarBrand>
+            </Link>
             <Collapse isOpen={this.state.isNavOpen} navbar>
               <Nav navbar className="ml-5">
                 <NavItem>
@@ -80,17 +82,10 @@ class Header extends React.Component {
                   </Link>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/aboutus">
-                    <span className="fa fa-info fa-lg" /> About Us
-                  </NavLink>
-                  <NavLink className="nav-link" to="/admin">
-                    <span className="fa fa-info fa-lg" /> Admin 
-                  </NavLink>
-                </NavItem>
-                <NavItem>
                   <UncontrolledDropdown>
                     <DropdownToggle nav caret>
                       <span className="fa fa-list fa-lg" /> Menu
+                      
                     </DropdownToggle>
                     <DropdownMenu right>
                       <NavLink className="nav-link" to="/category">
@@ -105,6 +100,11 @@ class Header extends React.Component {
                 <NavItem>
                   <NavLink className="nav-link" to="/contactus">
                     <span className="fa fa-address-card fa-lg" /> Contact Us
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink className="nav-link" to="/aboutus">
+                    <span className="fa fa-address-card fa-lg" /> About Us
                   </NavLink>
                 </NavItem>
               </Nav>
@@ -157,6 +157,11 @@ class Header extends React.Component {
                 </Modal>  */}
               </div>
     );
+
+    else return(<div>
+
+      
+    </div>)
   }
 }
 export default Header;

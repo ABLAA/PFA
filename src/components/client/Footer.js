@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 class Footer extends React.Component {
   render() {
     return (
+      
       <div className="footer">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-6 col-sm-3">
-              <h5>Links</h5>
+              <h5>Plan de site</h5>
               <ul className="list-unstyled">
                 <li>
                   <Link to="/home">Home</Link>
@@ -24,54 +25,41 @@ class Footer extends React.Component {
               </ul>
             </div>
             <div className="col-6 col-sm-3">
-              <h5>Our Address</h5>
+              <h5>Espace Client</h5>
               <address>
-                121, Clear Water Bay Road
+                Inscription
                 <br />
-                Clear Water Bay, Kowloon
+                Meilleures ventes
                 <br />
-                HONG KONG
+                Nouveaux automobiles
                 <br />
-                <i className="fa fa-phone fa-lg" />: +852 1234 5678
-                <br />
-                <i className="fa fa-fax fa-lg" />: +852 8765 4321
-                <br />
-                <i className="fa fa-envelope fa-lg" />:{" "}
-                <a href="mailto:confusion@food.net">confusion@food.net</a>
+                
               </address>
             </div>
             <div className="col-6 col-sm-3">
-              <h5>Our Address</h5>
+              <h5>Guide pratique</h5>
               <address>
-                121, Clear Water Bay Road
+                Procédure d'achat
                 <br />
-                Clear Water Bay, Kowloon
+                Demander avis
                 <br />
-                HONG KONG
-                <br />
-                <i className="fa fa-phone fa-lg" />: +852 1234 5678
-                <br />
-                <i className="fa fa-fax fa-lg" />: +852 8765 4321
-                <br />
-                <i className="fa fa-envelope fa-lg" />:{" "}
-                <a href="mailto:confusion@food.net">confusion@food.net</a>
+                
               </address>
             </div>
             <div className="col-6 col-sm-3">
-              <h5>Our Address</h5>
+              <h5>Qui sommes-nous</h5>
               <address>
-                121, Clear Water Bay Road
+                Contacter-nous
                 <br />
-                Clear Water Bay, Kowloon
+                A propos de nous
                 <br />
-                HONG KONG
+                Tunis, Tunisia
                 <br />
-                <i className="fa fa-phone fa-lg" />: +852 1234 5678
+                <i className="fa fa-phone fa-lg" />: +216 58 380 123
                 <br />
-                <i className="fa fa-fax fa-lg" />: +852 8765 4321
-                <br />
+                
                 <i className="fa fa-envelope fa-lg" />:{" "}
-                <a href="mailto:confusion@food.net">confusion@food.net</a>
+                <a href="mailto:confusion@food.net">ahmed@gmail.com</a>
               </address>
             </div>
             <div className="col-12 col-sm-4 align-self-center">

@@ -1,6 +1,8 @@
 const users=require('./routes/users');
 const auth=require('./routes/auth');
 
+const admin=require('./routes/admin');
+
 const express=require('express');
 const app=express();
 var bodyParser = require('body-parser');
@@ -14,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/users',users);
 app.use('/api/auth',auth);
+app.use('/api/admin',admin);
 
       
 // const insertUser=(req,res,email,hash,firstname,lastname,telnum,adresse,gendre)=>{

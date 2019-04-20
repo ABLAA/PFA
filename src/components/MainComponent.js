@@ -11,13 +11,16 @@ import Contact from "./client/ContactUsComponent";
 import Category from "./CategoryComponent";
 import {CARS} from '../shared/cars';
 import {connect} from 'react-redux';
-import { addCars,userSignup ,login} from "../redux/ActionCreators";
+import { addCars,userSignup ,login,loginAdmin} from "../redux/ActionCreators";
 import Header from './Header'
 import Admin from './AdminComponent';
+import LoginAdmin from './LoginAdminComponent';
+
 const mapStateToProps=(state)=>{
   return(
     {
     cars:state.cars,
+    auth:state.auth
     
     }
   )
@@ -25,7 +28,8 @@ const mapStateToProps=(state)=>{
 const  mapDispatchToProps=(dispatch)=>({
   addCars: () => { dispatch(addCars())},
   userSignup:(user)=>{dispatch(userSignup(user))},
-  login:(data)=>{dispatch(login(data))}
+  login:(data)=>{dispatch(login(data))},
+  loginAdmin:(data)=>{dispatch(loginAdmin(data))}
   
 
 
@@ -50,13 +54,15 @@ class Main extends React.Component {
     };
     return (
       <div>
-        <Header />
+        <Header isAuthetificated={this.props.auth.isAuthetificated} grade={this.props.auth.grade} user={this.props.auth.user}/>
         <Switch>
           <Route path="/home" component={() => <Home />} />
-          <Route path="/signup" component={() => <Sign userSignup={this.props.userSignup} />} />
+          <Route path="/signup" component={() => <Sign  />} />
           <Route path="/login" component={() => <Login login={this.props.login} />} />
           <Route path="/model/:cath" component={ModelWithCath} />
           <Route path="/model" component={()=><Model cars={this.props.cars} />} />
+          <Route path="/loginAdmin" component={() => <LoginAdmin loginAdmin={this.props.loginAdmin} />} />
+          <Route path="/admin" component={() => <Admin />} />
 
           <Route path="/aboutus" component={() => <About />} />
           <Route path="/contactus" component={() => <Contact />} />

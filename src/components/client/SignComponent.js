@@ -3,7 +3,8 @@ import {withRouter} from 'react-router-dom';
 import { Breadcrumb, BreadcrumbItem,
     Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
     import createBrowserHistory from 'history/createBrowserHistory';
-
+import {connect} from 'react-redux';
+import {userSignup} from './../../redux/ActionCreators'
 const history = createBrowserHistory({forceRefresh:true});
 class Sign extends React.Component{
     constructor(props) {
@@ -38,7 +39,7 @@ class Sign extends React.Component{
 
     handleSubmit(event) {
         event.preventDefault();
-        this.props.userSignup(this.state)
+        this.props.userSignup(this.state).then(this.props.history.push('home'))
     }
 
     render(){
@@ -160,4 +161,4 @@ class Sign extends React.Component{
         );
     }    
 }
-export default withRouter( Sign);
+export default withRouter(connect (null,{userSignup})(Sign));

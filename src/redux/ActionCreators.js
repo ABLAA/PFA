@@ -16,7 +16,7 @@ export const userSignup=(userData)=>(dispatch)=>{
 
     return axios.post('http://localhost:3000/api/users',userData)
     .then(function (response) {
-       history.push('/home')
+       
       })
       .catch(function (error) {
         console.log(error);
@@ -30,19 +30,51 @@ console.log(token)
         }
         else delete axios.defaults.headers.common["Authorization"];
 }
-
+export const setUser=(user)=>({
+        type:ActionTypes.SET_USER,
+        payload:user
+}
+);
 export const login=(userData)=>(dispatch)=>{
 
 
 
 
         return axios.post('http://localhost:3000/api/auth',userData)
+        .then()
+        .then(function (response) {
+               
+                const token=response.data.token;
+                localStorage.setItem('jwToken',token);
+                setAuthToken(token);
+                dispatch(setUser(jwt.decode(token)));
+                console.log(jwt.decode(token))
+                
+        })
+         }
+
+    export const setAdmin=(user)=>({
+        type:ActionTypes.SET_ADMIN,
+        payload:user
+}
+);
+    export const loginAdmin=(userData,h)=>(dispatch)=>{
+
+
+
+
+        return axios.post('http://localhost:3000/api/admin',userData)
         .then(function (response) {
                 const token=response.data.token;
                 localStorage.setItem('jwToken',token);
                 setAuthToken(token);
-console.log(jwt.decode(token))
+                dispatch(setAdmin(jwt.decode(token)));
+        h.push('/admin')
         })
+               
+
+        
           .catch(function (error) {
             console.log(error);
+            h.push('home')
     })}

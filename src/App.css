@@ -15,9 +15,11 @@
 }
 
 .footer{
-  background-color: rgba(67, 57, 90,0.5);
-  margin:0px auto;
+  background-color: black;
+  opacity: 0.8; 
+   margin:0px auto;
   padding: 20px 0px 20px 0px;
+  color:#007880;
 }
 .jumbotron{
   padding:70px 30px 70px 30px;
@@ -34,6 +36,7 @@
 
 .navbar-dark {
   background-color: rgb(67, 57, 90);
+  
 }
 .page-enter{
   opacity: 0.01;
@@ -76,3 +79,11 @@
     height:300px;
   } */
 }
+li a{
+ color:#007880; 
+}
+
+
+
+
+
